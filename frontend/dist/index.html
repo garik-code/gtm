@@ -1,284 +1,151 @@
-<!DOCTYPE html><html lang=en><head><meta charset=utf-8><link rel=icon href=/favicon.png><title>Dashboard</title><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta http-equiv=X-UA-Compatible content="IE=edge"><link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel=stylesheet><script src=https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js></script><link rel=stylesheet href="https://fonts.googleapis.com/icon?family=Material+Icons"><link rel=stylesheet href=https://code.getmdl.io/1.3.0/material.indigo-pink.min.css><script defer src=https://code.getmdl.io/1.3.0/material.min.js></script><script>WebFont.load({
-        google: {"families":["Poppins:300,400,500,600,700"]},
-        active: function() {
-          sessionStorage.fonts = true;
+<!DOCTYPE html><html lang=en dir=""><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><title>DSC - Геотехнический мониторинг</title><link href="https://fonts.googleapis.com/css?family=Nunito:300,400,400i,600,700,800,900" rel=stylesheet><link href=/hover-master/css/hover-min.css rel=stylesheet><link href=/animate/index.css rel=stylesheet><link href=/dist-assets/css/themes/lite-purple.min.css rel=stylesheet><link href=/dist-assets/css/plugins/perfect-scrollbar.min.css rel=stylesheet><link href=/folding-tree/css/file-explore.css rel=stylesheet><link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css><style media=screen>* {
+      -webkit-user-select: none;
+      /* user-select -- это нестандартное свойство */
+
+      -moz-user-select: none;
+      /* поэтому нужны префиксы */
+
+      -ms-user-select: none;
+    }
+    span.badge-title {
+        background-color: #322e37;
+        padding: 5px 15px;
+        color: #fff;
+        border-radius: 10px;
+        margin-right: 10px;
+    }
+    div#addbtn {
+        position: fixed;
+        z-index: 99999;
+        bottom: 25px;
+        right: 25px;
+        background-color: #006CB1;
+        width: 60px;
+        height: 60px;
+        border-radius: 60px;
+        text-align: center;
+        padding-top: 14px;
+        font-size: 23px;
+        color: #fff;
+        cursor: pointer;
+    }
+    ul#addlist {
+        position: fixed;
+        z-index: 99999;
+        bottom: 80px;
+        font-size: 12px;
+        right: 25px;
+        list-style: none;
+        padding: 0;
+        display: none;
+        opacity: 0;
+    }
+    ul#addlist li {
+        background-color: #f8f9fa;
+        border: 1px solid #ced4da;
+        color: #645f6a;
+        margin: 5px 0;
+        width: 250px;
+        border-radius: 5px;
+        font-size: 12px;
+        padding: 10px 20px;
+        box-shadow: 0px 0px 10px #3f51b54f;
+        display: block;
+        cursor: pointer;
+        position: relative;
+        padding-left: 60px;
+    }
+    #addlist i.nav-icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #e3e7f4;
+        padding: 14px;
+        font-size: 14px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        color: #006CB1;
+    }</style><link href=/css/app.885bd8cc.css rel=preload as=style><link href=/css/chunk-vendors.bd777184.css rel=preload as=style><link href=/js/app.4550bdfc.js rel=preload as=script><link href=/js/chunk-vendors.4bf8cd87.js rel=preload as=script><link href=/css/chunk-vendors.bd777184.css rel=stylesheet><link href=/css/app.885bd8cc.css rel=stylesheet></head><body class=text-left><div class="app-admin-wrap layout-sidebar-large"><div class=main-header><div class=logo><img src=/dist-assets/images/logo.png alt=""></div><div class=menu-toggle><div></div><div></div><div></div></div><div class="d-flex align-items-center"><div class="dropdown mega-menu d-none d-md-block"><a data-href=blank.html# class="btn text-muted dropdown-toggle mr-3" id=dropdownMegaMenuButton data-toggle=dropdown aria-haspopup=true aria-expanded=false>Быстрое меню</a><div class="dropdown-menu text-left" aria-labelledby=dropdownMenuButton><div class="row m-0"><div class="col-md-4 p-4 bg-img"><h2 class=title>Data Stream<br>Control</h2><p>Человек скорбей, блаженное удовольствие результата будет наималейшая из офисов часто непреходящая радость Бахуса,</p><p class=mb-4>в то время, чтобы следить за болью некоторые есть, но больше всего они не знают преимущество всего</p><button class="btn btn-lg btn-rounded btn-outline-warning">Начать обучение</button></div><div class="col-md-4 p-4"><p class="text-primary text--cap border-bottom-primary d-inline-block">Features</p><div class="menu-icon-grid w-auto p-0"><a data-href=blank.html#><i class=i-Shop-4></i> Home</a> <a data-href=blank.html#><i class=i-Library></i> UI Kits</a> <a data-href=blank.html#><i class=i-Drop></i> Apps</a> <a data-href=blank.html#><i class=i-File-Clipboard-File--Text></i> Forms</a> <a data-href=blank.html#><i class=i-Checked-User></i> Sessions</a> <a data-href=blank.html#><i class=i-Ambulance></i> Support</a></div></div><div class="col-md-4 p-4"><p class="text-primary text--cap border-bottom-primary d-inline-block">Components</p><ul class=links><li><a data-href=accordion.html>Accordion</a></li><li><a data-href=alerts.html>Alerts</a></li><li><a data-href=buttons.html>Buttons</a></li><li><a data-href=badges.html>Badges</a></li><li><a data-href=carousel.html>Carousels</a></li><li><a data-href=lists.html>Lists</a></li><li><a data-href=popover.html>Popover</a></li><li><a data-href=tables.html>Tables</a></li><li><a data-href=datatables.html>Datatables</a></li><li><a data-href=modals.html>Modals</a></li><li><a data-href=nouislider.html>Sliders</a></li><li><a data-href=tabs.html>Tabs</a></li></ul></div></div></div></div><div class=search-bar><input type=text placeholder="Поиск проектов"> <i class="search-icon text-muted i-Magnifi-Glass1"></i></div></div><div style="margin: auto"></div><div class=header-part-right><i class="i-Full-Screen header-icon d-none d-sm-inline-block" data-fullscreen></i><div class=dropdown><i class="i-Safe-Box text-muted header-icon" role=button id=dropdownMenuButton data-toggle=dropdown aria-haspopup=true aria-expanded=false></i><div class=dropdown-menu aria-labelledby=dropdownMenuButton><div class=menu-icon-grid><a data-href=blank.html#><i class=i-Shop-4></i> Home</a> <a data-href=blank.html#><i class=i-Library></i> UI Kits</a> <a data-href=blank.html#><i class=i-Drop></i> Apps</a> <a data-href=blank.html#><i class=i-File-Clipboard-File--Text></i> Forms</a> <a data-href=blank.html#><i class=i-Checked-User></i> Sessions</a> <a data-href=blank.html#><i class=i-Ambulance></i> Support</a></div></div></div><div class=dropdown><div class=badge-top-container role=button id=dropdownNotification data-toggle=dropdown aria-haspopup=true aria-expanded=false><span class="badge badge-primary">3</span> <i class="i-Bell text-muted header-icon"></i></div><div class="dropdown-menu dropdown-menu-right notification-dropdown rtl-ps-none" aria-labelledby=dropdownNotification data-perfect-scrollbar data-suppress-scroll-x=true><div class="dropdown-item d-flex"><div class=notification-icon><i class="i-Speach-Bubble-6 text-primary mr-1"></i></div><div class="notification-details flex-grow-1"><p class="m-0 d-flex align-items-center"><span>New message</span> <span class="badge badge-pill badge-primary ml-1 mr-1">new</span> <span class=flex-grow-1></span> <span class="text-small text-muted ml-auto">10 sec ago</span></p><p class="text-small text-muted m-0">James: Hey! are you busy?</p></div></div><div class="dropdown-item d-flex"><div class=notification-icon><i class="i-Receipt-3 text-success mr-1"></i></div><div class="notification-details flex-grow-1"><p class="m-0 d-flex align-items-center"><span>New order received</span> <span class="badge badge-pill badge-success ml-1 mr-1">new</span> <span class=flex-grow-1></span> <span class="text-small text-muted ml-auto">2 hours ago</span></p><p class="text-small text-muted m-0">1 Headphone, 3 iPhone x</p></div></div><div class="dropdown-item d-flex"><div class=notification-icon><i class="i-Empty-Box text-danger mr-1"></i></div><div class="notification-details flex-grow-1"><p class="m-0 d-flex align-items-center"><span>Product out of stock</span> <span class="badge badge-pill badge-danger ml-1 mr-1">3</span> <span class=flex-grow-1></span> <span class="text-small text-muted ml-auto">10 hours ago</span></p><p class="text-small text-muted m-0">Headphone E67, R98, XL90, Q77</p></div></div><div class="dropdown-item d-flex"><div class=notification-icon><i class="i-Data-Power text-success mr-1"></i></div><div class="notification-details flex-grow-1"><p class="m-0 d-flex align-items-center"><span>Server Up!</span> <span class="badge badge-pill badge-success ml-1 mr-1">3</span> <span class=flex-grow-1></span> <span class="text-small text-muted ml-auto">14 hours ago</span></p><p class="text-small text-muted m-0">Server rebooted successfully</p></div></div></div></div><div class=dropdown><div class="user col align-self-end"><img src=/dist-assets/images/faces/1.jpg id=userDropdown alt="" data-toggle=dropdown aria-haspopup=true aria-expanded=false><div class="dropdown-menu dropdown-menu-right" aria-labelledby=userDropdown><div class=dropdown-header><i class="i-Lock-User mr-1"></i> Timothy Carlson</div><a class=dropdown-item>Account settings</a> <a class=dropdown-item>Billing history</a> <a class=dropdown-item data-href=signin.html>Sign out</a></div></div></div></div></div><div class=side-content-wrap><div class="sidebar-left open rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x=true><ul class=navigation-left><li class=nav-item><a class=nav-item-hold data-href=blank.html#><i class="nav-icon i-Bar-Chart"></i><span class=nav-text>Проекты</span></a><div class=triangle></div></li><li class=nav-item><a class=nav-item-hold data-href=blank.html#><i class="nav-icon i-Library"></i><span class=nav-text>Настройки</span></a><div class=triangle></div></li></ul></div><div class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x=true><ul class=childNav data-parent=dashboard><li class=nav-item><a data-href=""><i class="nav-icon i-Clock-3"></i><span class=item-name>Создать</span></a></li><li class=nav-item><a data-href=""><i class="nav-icon i-Clock-3"></i><span class=item-name>Активные</span></a></li><li class=nav-item><a data-href=""><i class="nav-icon i-Clock-3"></i><span class=item-name>Архив</span></a></li></ul><ul class=childNav data-parent=uikits><li class=nav-item><a data-href=form.basic.html><i class="nav-icon i-File-Clipboard-Text--Image"></i><span class=item-name>Аккаунт</span></a></li><li class=nav-item><a data-href=form.basic.html><i class="nav-icon i-File-Clipboard-Text--Image"></i><span class=item-name>Лицензия</span></a></li><li class=nav-item><a data-href=form.basic.html><i class="nav-icon i-File-Clipboard-Text--Image"></i><span class=item-name>Сервер</span></a></li></ul></div><div class=sidebar-overlay></div></div><div class="main-content-wrap sidenav-open d-flex flex-column"><div id=app></div><div style="display: none"><div class=main-content><div class=breadcrumb><h1>Blank</h1><ul><li><a data-href=blank.html>Pages</a></li><li>Blank</li></ul></div></div></div><div class=flex-grow-1></div><div class=app-footer><div class=row><div class=col-md-9><p><strong>Разработка компании ООО "Криолит"</strong></p><p>Человек скорбей, блаженное удовольствие результата будет наималейшая из офисов часто непреходящая радость Бахуса, в то время, чтобы следить за болью некоторые есть, но больше всего они не знают преимущество всего<sunt></sunt></p></div></div><div class="footer-bottom border-top pt-3 d-flex flex-column flex-sm-row align-items-center"><a class="btn btn-primary text-white btn-rounded" data-href=https://themeforest.net/item/gull-bootstrap-laravel-admin-dashboard-template/23101970 target=_blank>Контактная информация</a> <span class=flex-grow-1></span><div class="d-flex align-items-center"><img class=logo src=/dist-assets/images/logo.png alt=""><div><p class=m-0>&copy; 2020 DSC GTM</p><p class=m-0>Права защищены</p></div></div></div></div></div></div><div class=search-ui><div class=search-header><img src=/dist-assets/images/logo.png alt="" class=logo> <button class="search-close btn btn-icon bg-transparent float-right mt-2"><i class="i-Close-Window text-22 text-muted"></i></button></div><input type=text placeholder="Type here" class=search-input autofocus><div class=search-title><span class=text-muted>Search results</span></div><div class="search-results list-horizontal"><div class="list-item col-md-12 p-0"><div class="card o-hidden flex-row mb-4 d-flex"><div class="list-thumb d-flex"><img src=/dist-assets/images/products/headphone-1.jpg alt=""></div><div class="flex-grow-1 pl-2 d-flex"><div class="card-body align-self-center d-flex flex-column justify-content-between align-items-lg-center flex-lg-row"><a data-href=blank.html class="w-40 w-sm-100"><div class=item-title>Headphone 1</div></a><p class="m-0 text-muted text-small w-15 w-sm-100">Gadget</p><p class="m-0 text-muted text-small w-15 w-sm-100">$300 <del class=text-secondary>$400</del></p><p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-badges"><span class="badge badge-danger">Sale</span></p></div></div></div></div><div class="list-item col-md-12 p-0"><div class="card o-hidden flex-row mb-4 d-flex"><div class="list-thumb d-flex"><img src=/dist-assets/images/products/headphone-2.jpg alt=""></div><div class="flex-grow-1 pl-2 d-flex"><div class="card-body align-self-center d-flex flex-column justify-content-between align-items-lg-center flex-lg-row"><a data-href=blank.html class="w-40 w-sm-100"><div class=item-title>Headphone 1</div></a><p class="m-0 text-muted text-small w-15 w-sm-100">Gadget</p><p class="m-0 text-muted text-small w-15 w-sm-100">$300 <del class=text-secondary>$400</del></p><p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-badges"><span class="badge badge-primary">New</span></p></div></div></div></div><div class="list-item col-md-12 p-0"><div class="card o-hidden flex-row mb-4 d-flex"><div class="list-thumb d-flex"><img src=/dist-assets/images/products/headphone-3.jpg alt=""></div><div class="flex-grow-1 pl-2 d-flex"><div class="card-body align-self-center d-flex flex-column justify-content-between align-items-lg-center flex-lg-row"><a data-href=blank.html class="w-40 w-sm-100"><div class=item-title>Headphone 1</div></a><p class="m-0 text-muted text-small w-15 w-sm-100">Gadget</p><p class="m-0 text-muted text-small w-15 w-sm-100">$300 <del class=text-secondary>$400</del></p><p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-badges"><span class="badge badge-primary">New</span></p></div></div></div></div><div class="list-item col-md-12 p-0"><div class="card o-hidden flex-row mb-4 d-flex"><div class="list-thumb d-flex"><img src=/dist-assets/images/products/headphone-4.jpg alt=""></div><div class="flex-grow-1 pl-2 d-flex"><div class="card-body align-self-center d-flex flex-column justify-content-between align-items-lg-center flex-lg-row"><a data-href=blank.html class="w-40 w-sm-100"><div class=item-title>Headphone 1</div></a><p class="m-0 text-muted text-small w-15 w-sm-100">Gadget</p><p class="m-0 text-muted text-small w-15 w-sm-100">$300 <del class=text-secondary>$400</del></p><p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-badges"><span class="badge badge-primary">New</span></p></div></div></div></div></div><div class="col-md-12 mt-5 text-center"><nav aria-label="Page navigation example"><ul class="pagination d-inline-flex"><li class=page-item><a class=page-link data-href=blank.html# aria-label=Previous><span aria-hidden=true>&laquo;</span> <span class=sr-only>Previous</span></a></li><li class=page-item><a class=page-link data-href=blank.html#>1</a></li><li class=page-item><a class=page-link data-href=blank.html#>2</a></li><li class=page-item><a class=page-link data-href=blank.html#>3</a></li><li class=page-item><a class=page-link data-href=blank.html# aria-label=Next><span aria-hidden=true>&raquo;</span> <span class=sr-only>Next</span></a></li></ul></nav></div></div><script src=/dist-assets/js/plugins/jquery-3.3.1.min.js></script><script src=/dist-assets/js/plugins/bootstrap.bundle.min.js></script><script src=/dist-assets/js/plugins/perfect-scrollbar.min.js></script><script src=/dist-assets/js/scripts/script.min.js></script><script src=/dist-assets/js/scripts/sidebar.large.script.min.js></script><script src=/dist-assets/js/plugins/echarts.min.js></script><script src=/dist-assets/js/scripts/echarts.script.min.js></script><script src=/folding-tree/js/file-explore.js></script><script src=https://rawgit.com/nnnick/Chart.js/v1.0.2/Chart.min.js></script><script>function zoom(type){
+        var zoom = $('#viewer-zoom-object').css('zoom')
+        var step = 0.02
+        if (type == 'plus' && zoom != 1) {
+          zoom = parseFloat(zoom) + parseFloat(step)
+        }else if (type == 'minus' && zoom != 0.02) {
+          zoom = parseFloat(zoom) - parseFloat(step)
         }
-      });</script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css><style media=screen>div#app {
-        margin-top: 65px;
-      }
-      body {
-        background-color: #eee;
-      }
-      .demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type  {
-        padding-right: 0;
-      }
-      .notifyjs-corner {
-        top: 65px!important;
-      }
-      * {
-        -webkit-touch-callout: none; /* iOS Safari */
-        -webkit-user-select: none;   /* Chrome/Safari/Opera */
-        -khtml-user-select: none;    /* Konqueror */
-        -moz-user-select: none;      /* Firefox */
-        -ms-user-select: none;       /* Internet Explorer/Edge */
-        user-select: none;           /* Non-prefixed version, currently
-                                        not supported by any browser */
-      }</style><link href=/css/app.6e4bca35.css rel=preload as=style><link href=/js/app.668fef8b.js rel=preload as=script><link href=/js/chunk-vendors.38b82d94.js rel=preload as=script><link href=/css/app.6e4bca35.css rel=stylesheet></head><body><noscript><strong>We're sorry but application doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script src=https://code.jquery.com/jquery-3.5.1.js integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js integrity=sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 crossorigin=anonymous></script><script defer src=https://use.fontawesome.com/releases/v5.3.1/js/all.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js charset=utf-8></script><script src=/assets/js/notify.min.js charset=utf-8></script><script>function sendNotification(title, option) {
-        $.notify(title);
+        console.log(zoom)
+        $('#viewer-zoom-object').css('zoom', zoom)
+        $('.test-block').css('zoom', zoom)
+        $('.test-block-two').css('zoom', zoom)
+        $('.test-block-three').css('zoom', zoom)
       }
 
-      function error (mess){
-        $.notify(mess, "error");
+      function foldersTree(){
+        $('.file-tree').filetree({
+          collapsed: true,
+        });
+        setTimeout(function (){
+          $('.file-tree').addClass('fadeInUp')
+          $('.loading-folders').css('display', 'none')
+        }, 500)
+        getChartTS()
       }
 
-      function notify(mess){
-        $.notify(mess, "success");
-      }
+      function getChartTS() {
+        var data = {
+            labels: [-10, -8, -6, -4, -2, 0, 2],
+            datasets: [{
+                data: [0, 2, 4, 6, 8, 10, 12, 14, 16]
+            }]
+        };
 
-      function checkAuth () {
-        data = new FormData()
-        data.append( 'access_token', $.cookie('access_token') )
-        $.ajax({
-          url: 'http://localhost:228/security',
-          data: data,
-          processData: false,
-          contentType: false,
-          type: 'POST',
-          success: function ( data ) {
-            if(typeof data.picture == 'undefined'){
-              return false
-            }else{
-              console.log(data)
-              localStorage.setItem('name', data.name)
-              localStorage.setItem('avatar', data.picture)
-              return true
+        var ctx = document.getElementById("LineWithLine").getContext("2d");
+
+        Chart.types.Line.extend({
+            name: "LineWithLine",
+            draw: function () {
+                Chart.types.Line.prototype.draw.apply(this, arguments);
+
+                var point = this.datasets[0].points[this.options.lineAtIndex]
+                var scale = this.scale
+
+                // draw line
+                this.chart.ctx.beginPath();
+                this.chart.ctx.moveTo(point.x, scale.startPoint + 24);
+                this.chart.ctx.strokeStyle = '#ff0000';
+                this.chart.ctx.lineTo(point.x, scale.endPoint);
+                this.chart.ctx.stroke();
+
+                // write TODAY
+                this.chart.ctx.textAlign = 'center';
+                this.chart.ctx.fillText("0", point.x, scale.startPoint + 12);
             }
-          },
-          error: function ( data ) {
-            error('Activity detected. Your IP address is blocked for 15 minutes.')
-          }
+        });
+
+        new Chart(ctx).LineWithLine(data, {
+            datasetFill : false,
+            lineAtIndex: 5
         });
       }
 
-      function login (){
-        var phone = $("#phone").val()
-        var passw = $("#password").val()
-        if(phone == ''){
-          error('Enter phone')
-          $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
-        }else if(passw == ''){
-          error('Enter password')
-          $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
+      $(document).ready(function (){
+        foldersTree()
+      })
+
+      // viewer-zoom-object
+
+      function addlist(e = 'i-Pen-2'){
+        if ($('#addbtn').html() == '<i class="nav-icon i-Close"></i>') {
+          $('#addlist').removeClass('animated fadeInUp')
+          $('#addlist').addClass('animated fadeOutDown')
+          $('#addbtn').html('<i class="nav-icon '+e+'"></i>')
+          setTimeout(function (){
+            $('#addlist').removeClass('animated fadeOutDown')
+            $('#addlist').css('display', 'none')
+          }, 500)
         }else{
-          data = new FormData()
-          data.append( 'phone', phone )
-          data.append( 'passw', passw )
-          $.ajax({
-            url: 'http://localhost:228/auth',
-            data: data,
-            processData: false,
-            contentType: false,
-            type: 'POST',
-            success: function ( data ) {
-              if (typeof data.access_token == 'undefined') {
-                error('Error auth')
-                $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
-              }else{
-                console.log(data);
-                $.cookie('access_token', data.access_token, { expires: 7, path: '/' })
-                $.cookie('email', data.email, { expires: 7, path: '/' })
-                localStorage.setItem('name', data.name)
-                localStorage.setItem('avatar', data.avatar)
-                $('#go-hello').click()
-                security ()
-              }
-            },
-            error: function ( data ) {
-              error('Activity detected. Your IP address is blocked for 1 hour.')
-              $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
-            }
-          });
+          $('#addlist').css('display', 'block')
+          $('#addlist').addClass('animated fadeInUp')
+          $('#addbtn').html('<i class="nav-icon i-Close"></i>')
         }
-      }
-
-      function logout(){
-        $.cookie('access_token', '', { expires: 7, path: '/' })
-        $('#go-auth').click()
-      }
-
-      function reg_step_1 (){
-        var email = $("#EMAIL_REG").val()
-        var passw = $("#PASSW_REG").val()
-        var name  = $("#NAME_REG").val()
-        var partner = location.href.split('#')[1]
-        if(email == ''){
-          error('Enter email')
-          $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
-        }else if(passw == ''){
-          error('Enter password')
-          $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
-        }else if(name == ''){
-          error('Enter name')
-          $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
-        }else{
-          data = new FormData()
-          data.append( 'email', email )
-          data.append( 'partner', partner )
-          $.ajax({
-            url: 'http://localhost:228/reg/email',
-            data: data,
-            processData: false,
-            contentType: false,
-            type: 'POST',
-            success: function ( data ) {
-              if(typeof data.err != 'undefined'){
-                if (data.err == 'partner') {
-                  error('Access denied')
-                }else{
-                  error(data.err)
-                }
-                $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
-              }else{
-                $.cookie('reg_step_1', JSON.stringify({ email: email, passw: passw, name: name }), { expires: 7, path: '/' })
-                to_second_step_of_registration()
-              }
-            },
-            error: function ( data ) {
-              error('Activity detected. Your IP address is blocked for 1 hour.')
-              $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
-            }
-          });
-        }
-      }
-
-      function reg_step_2 (){
-        var reg_step_1 = JSON.parse($.cookie('reg_step_1'))
-        var name = $("#NAME_REG").val()
-        var phone = $("#PHONE_REG").val()
-        var emailcode = $("#EMAIL_CODE").val()
-        var email = reg_step_1.email
-        var passw = reg_step_1.passw
-        var partner = location.href.split('#')[1]
-        if(name == ''){
-          error('Enter name')
-          $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
-        }else if(phone == ''){
-          error('Enter phone')
-          $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
-        }else if(emailcode == ''){
-          error('Enter email code')
-          $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
-        }else{
-          data = new FormData()
-          data.append( 'name', name )
-          data.append( 'email', email )
-          data.append( 'emailcode', emailcode )
-          data.append( 'phone', phone )
-          data.append( 'passw', passw )
-          data.append( 'partner', partner )
-          $.cookie('reg_step_2', JSON.stringify({ phone: phone }), { expires: 7, path: '/' })
-          $.ajax({
-            url: 'http://localhost:228/reg',
-            data: data,
-            processData: false,
-            contentType: false,
-            type: 'POST',
-            success: function ( data ) {
-              console.log(data)
-              if (data.success == true) {
-                to_third_step_of_registration()
-              }else{
-                error('Error create account ( '+data.err+' )')
-                $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
-              }
-            },
-            error: function ( data ) {
-              error('Activity detected. Your IP address is blocked for 1 hour.')
-              $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
-            }
-          });
-        }
-      }
-
-      function reg_step_3 (){
-        var reg_step_2 = JSON.parse($.cookie('reg_step_2'))
-        console.log(reg_step_2);
-        var code = $("#SMS_CODE").val()
-        var phone = reg_step_2.phone
-        if(code == ''){
-          error('Enter code')
-          $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
-        }else if(phone == ''){
-          error('Error')
-          $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
-        }else{
-          data = new FormData()
-          data.append( 'code', code )
-          data.append( 'phone', phone )
-          $.ajax({
-            url: 'http://localhost:228/reg/confirm',
-            data: data,
-            processData: false,
-            contentType: false,
-            type: 'POST',
-            success: function (data) {
-              console.log(data)
-              if (data.success == true) {
-
-                $.cookie('access_token', data.access_token, { expires: 7, path: '/' })
-                $.cookie('email', data.email, { expires: 7, path: '/' })
-                localStorage.setItem('name', data.name)
-                localStorage.setItem('avatar', data.avatar)
-
-                $('#go-hello').trigger('click')
-                security ()
-
-              }else{
-                error('Error code')
-                $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
-              }
-            },
-            error: function (data) {
-              error('Activity detected. Your IP address is blocked for 1 hour.')
-              $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
-            }
-          });
-        }
-      }
-
-      function security (){
-        var access_token = $.cookie('access_token')
-        var email = $.cookie('email')
-        if(access_token == '' || typeof access_token == 'undefined'){
-          $('#go-auth').click()
-        }else if(email == '' || typeof email == 'undefined'){
-          $('#go-auth').click()
-        }else{
-          data = new FormData()
-          data.append( 'access_token', access_token )
-          data.append( 'email', email )
-          $.ajax({
-            url: 'http://localhost:228/security',
-            data: data,
-            processData: false,
-            contentType: false,
-            type: 'POST',
-            success: function ( data ) {
-              if (typeof data.success == 'undefined') {
-                $('#go-auth').click()
-              }else{
-                localStorage.setItem('name', data.name)
-                localStorage.setItem('avatar', data.avatar)
-                $('#go-hello').click()
-              }
-            },
-            error: function ( data ) {
-              $('#go-auth').click()
-            }
-          })
-        }
-      }
-
-      setTimeout(function (){
-        security ()
-      }, 100)</script><script src=/js/chunk-vendors.38b82d94.js></script><script src=/js/app.668fef8b.js></script></body></html>
+      }</script><script src=/js/chunk-vendors.4bf8cd87.js></script><script src=/js/app.4550bdfc.js></script></body></html>
