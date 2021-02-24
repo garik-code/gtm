@@ -13,17 +13,17 @@ services:
   #   networks:
   #     - postgres
 
-  nodejs-server:
-    build:
-      context: ./backend/nodejs/
-      dockerfile: Dockerfile
-    image: garik/nodejs-server
-    container_name: nodejs-server
-    restart: unless-stopped
-    networks:
-      - postgres
-    ports:
-      - "228:228"
+  # nodejs-server:
+  #   build:
+  #     context: ./backend/nodejs/
+  #     dockerfile: Dockerfile
+  #   image: garik/nodejs-server
+  #   container_name: nodejs-server
+  #   restart: unless-stopped
+  #   networks:
+  #     - postgres
+  #   ports:
+  #     - "228:228"
 
   nginx-server:
     build:
@@ -35,35 +35,35 @@ services:
     ports:
       - "8080:80"
 
-  postgres-server:
-    image: postgres:11
-    container_name: postgres-server
-    restart: unless-stopped
-    tty: true
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      PGDATA : /var/lib/postgresql/data
-    volumes:
-      - ./backend/postgres:/var/lib/postgresql/data
-    networks:
-      - postgres
-    ports:
-      - "8001:5432"
-
-  pgadmin:
-    container_name: pgadmin
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: mail@garik.site
-      PGADMIN_DEFAULT_PASSWORD: admin
-    volumes:
-       - ./backend/pgadmin:/root/.pgadmin
-    ports:
-      - "5050:80"
-    networks:
-      - postgres
-    restart: unless-stopped
+  # postgres-server:
+  #   image: postgres:11
+  #   container_name: postgres-server
+  #   restart: unless-stopped
+  #   tty: true
+  #   environment:
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: postgres
+  #     PGDATA : /var/lib/postgresql/data
+  #   volumes:
+  #     - ./backend/postgres:/var/lib/postgresql/data
+  #   networks:
+  #     - postgres
+  #   ports:
+  #     - "8001:5432"
+  #
+  # pgadmin:
+  #   container_name: pgadmin
+  #   image: dpage/pgadmin4
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: mail@garik.site
+  #     PGADMIN_DEFAULT_PASSWORD: admin
+  #   volumes:
+  #      - ./backend/pgadmin:/root/.pgadmin
+  #   ports:
+  #     - "5050:80"
+  #   networks:
+  #     - postgres
+  #   restart: unless-stopped
 
 networks:
   postgres:
