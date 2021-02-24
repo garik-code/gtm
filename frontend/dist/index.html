@@ -1,0 +1,284 @@
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><link rel=icon href=/favicon.png><title>Dashboard</title><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta http-equiv=X-UA-Compatible content="IE=edge"><link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel=stylesheet><script src=https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js></script><link rel=stylesheet href="https://fonts.googleapis.com/icon?family=Material+Icons"><link rel=stylesheet href=https://code.getmdl.io/1.3.0/material.indigo-pink.min.css><script defer src=https://code.getmdl.io/1.3.0/material.min.js></script><script>WebFont.load({
+        google: {"families":["Poppins:300,400,500,600,700"]},
+        active: function() {
+          sessionStorage.fonts = true;
+        }
+      });</script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css><style media=screen>div#app {
+        margin-top: 65px;
+      }
+      body {
+        background-color: #eee;
+      }
+      .demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type  {
+        padding-right: 0;
+      }
+      .notifyjs-corner {
+        top: 65px!important;
+      }
+      * {
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none;   /* Chrome/Safari/Opera */
+        -khtml-user-select: none;    /* Konqueror */
+        -moz-user-select: none;      /* Firefox */
+        -ms-user-select: none;       /* Internet Explorer/Edge */
+        user-select: none;           /* Non-prefixed version, currently
+                                        not supported by any browser */
+      }</style><link href=/css/app.6e4bca35.css rel=preload as=style><link href=/js/app.668fef8b.js rel=preload as=script><link href=/js/chunk-vendors.38b82d94.js rel=preload as=script><link href=/css/app.6e4bca35.css rel=stylesheet></head><body><noscript><strong>We're sorry but application doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script src=https://code.jquery.com/jquery-3.5.1.js integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js integrity=sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 crossorigin=anonymous></script><script defer src=https://use.fontawesome.com/releases/v5.3.1/js/all.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js charset=utf-8></script><script src=/assets/js/notify.min.js charset=utf-8></script><script>function sendNotification(title, option) {
+        $.notify(title);
+      }
+
+      function error (mess){
+        $.notify(mess, "error");
+      }
+
+      function notify(mess){
+        $.notify(mess, "success");
+      }
+
+      function checkAuth () {
+        data = new FormData()
+        data.append( 'access_token', $.cookie('access_token') )
+        $.ajax({
+          url: 'http://localhost:228/security',
+          data: data,
+          processData: false,
+          contentType: false,
+          type: 'POST',
+          success: function ( data ) {
+            if(typeof data.picture == 'undefined'){
+              return false
+            }else{
+              console.log(data)
+              localStorage.setItem('name', data.name)
+              localStorage.setItem('avatar', data.picture)
+              return true
+            }
+          },
+          error: function ( data ) {
+            error('Activity detected. Your IP address is blocked for 15 minutes.')
+          }
+        });
+      }
+
+      function login (){
+        var phone = $("#phone").val()
+        var passw = $("#password").val()
+        if(phone == ''){
+          error('Enter phone')
+          $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
+        }else if(passw == ''){
+          error('Enter password')
+          $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
+        }else{
+          data = new FormData()
+          data.append( 'phone', phone )
+          data.append( 'passw', passw )
+          $.ajax({
+            url: 'http://localhost:228/auth',
+            data: data,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function ( data ) {
+              if (typeof data.access_token == 'undefined') {
+                error('Error auth')
+                $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
+              }else{
+                console.log(data);
+                $.cookie('access_token', data.access_token, { expires: 7, path: '/' })
+                $.cookie('email', data.email, { expires: 7, path: '/' })
+                localStorage.setItem('name', data.name)
+                localStorage.setItem('avatar', data.avatar)
+                $('#go-hello').click()
+                security ()
+              }
+            },
+            error: function ( data ) {
+              error('Activity detected. Your IP address is blocked for 1 hour.')
+              $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
+            }
+          });
+        }
+      }
+
+      function logout(){
+        $.cookie('access_token', '', { expires: 7, path: '/' })
+        $('#go-auth').click()
+      }
+
+      function reg_step_1 (){
+        var email = $("#EMAIL_REG").val()
+        var passw = $("#PASSW_REG").val()
+        var name  = $("#NAME_REG").val()
+        var partner = location.href.split('#')[1]
+        if(email == ''){
+          error('Enter email')
+          $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
+        }else if(passw == ''){
+          error('Enter password')
+          $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
+        }else if(name == ''){
+          error('Enter name')
+          $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
+        }else{
+          data = new FormData()
+          data.append( 'email', email )
+          data.append( 'partner', partner )
+          $.ajax({
+            url: 'http://localhost:228/reg/email',
+            data: data,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function ( data ) {
+              if(typeof data.err != 'undefined'){
+                if (data.err == 'partner') {
+                  error('Access denied')
+                }else{
+                  error(data.err)
+                }
+                $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
+              }else{
+                $.cookie('reg_step_1', JSON.stringify({ email: email, passw: passw, name: name }), { expires: 7, path: '/' })
+                to_second_step_of_registration()
+              }
+            },
+            error: function ( data ) {
+              error('Activity detected. Your IP address is blocked for 1 hour.')
+              $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
+            }
+          });
+        }
+      }
+
+      function reg_step_2 (){
+        var reg_step_1 = JSON.parse($.cookie('reg_step_1'))
+        var name = $("#NAME_REG").val()
+        var phone = $("#PHONE_REG").val()
+        var emailcode = $("#EMAIL_CODE").val()
+        var email = reg_step_1.email
+        var passw = reg_step_1.passw
+        var partner = location.href.split('#')[1]
+        if(name == ''){
+          error('Enter name')
+          $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
+        }else if(phone == ''){
+          error('Enter phone')
+          $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
+        }else if(emailcode == ''){
+          error('Enter email code')
+          $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
+        }else{
+          data = new FormData()
+          data.append( 'name', name )
+          data.append( 'email', email )
+          data.append( 'emailcode', emailcode )
+          data.append( 'phone', phone )
+          data.append( 'passw', passw )
+          data.append( 'partner', partner )
+          $.cookie('reg_step_2', JSON.stringify({ phone: phone }), { expires: 7, path: '/' })
+          $.ajax({
+            url: 'http://localhost:228/reg',
+            data: data,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function ( data ) {
+              console.log(data)
+              if (data.success == true) {
+                to_third_step_of_registration()
+              }else{
+                error('Error create account ( '+data.err+' )')
+                $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
+              }
+            },
+            error: function ( data ) {
+              error('Activity detected. Your IP address is blocked for 1 hour.')
+              $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
+            }
+          });
+        }
+      }
+
+      function reg_step_3 (){
+        var reg_step_2 = JSON.parse($.cookie('reg_step_2'))
+        console.log(reg_step_2);
+        var code = $("#SMS_CODE").val()
+        var phone = reg_step_2.phone
+        if(code == ''){
+          error('Enter code')
+          $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
+        }else if(phone == ''){
+          error('Error')
+          $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
+        }else{
+          data = new FormData()
+          data.append( 'code', code )
+          data.append( 'phone', phone )
+          $.ajax({
+            url: 'http://localhost:228/reg/confirm',
+            data: data,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function (data) {
+              console.log(data)
+              if (data.success == true) {
+
+                $.cookie('access_token', data.access_token, { expires: 7, path: '/' })
+                $.cookie('email', data.email, { expires: 7, path: '/' })
+                localStorage.setItem('name', data.name)
+                localStorage.setItem('avatar', data.avatar)
+
+                $('#go-hello').trigger('click')
+                security ()
+
+              }else{
+                error('Error code')
+                $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
+              }
+            },
+            error: function (data) {
+              error('Activity detected. Your IP address is blocked for 1 hour.')
+              $('.login').removeClass('animated shake');setTimeout(function (){$('.login').addClass('animated shake')}, 100)
+            }
+          });
+        }
+      }
+
+      function security (){
+        var access_token = $.cookie('access_token')
+        var email = $.cookie('email')
+        if(access_token == '' || typeof access_token == 'undefined'){
+          $('#go-auth').click()
+        }else if(email == '' || typeof email == 'undefined'){
+          $('#go-auth').click()
+        }else{
+          data = new FormData()
+          data.append( 'access_token', access_token )
+          data.append( 'email', email )
+          $.ajax({
+            url: 'http://localhost:228/security',
+            data: data,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function ( data ) {
+              if (typeof data.success == 'undefined') {
+                $('#go-auth').click()
+              }else{
+                localStorage.setItem('name', data.name)
+                localStorage.setItem('avatar', data.avatar)
+                $('#go-hello').click()
+              }
+            },
+            error: function ( data ) {
+              $('#go-auth').click()
+            }
+          })
+        }
+      }
+
+      setTimeout(function (){
+        security ()
+      }, 100)</script><script src=/js/chunk-vendors.38b82d94.js></script><script src=/js/app.668fef8b.js></script></body></html>

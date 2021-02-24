@@ -1,0 +1,92 @@
+{
+  "lines": 3,
+  "access": {
+    "vip": {
+      "lines": [
+        15, 6, 3
+      ],
+      "invest": [
+        5, 5, 5
+      ],
+      "price_min": 1800,
+      "price_max": 2000
+    },
+    "premium": {
+      "lines": [
+        10, 4
+      ],
+      "invest": [
+        10, 10
+      ],
+      "price_min": 900,
+      "price_max": 1000
+    },
+    "optima": {
+      "lines": [
+        5
+      ],
+      "invest": [
+        15
+      ],
+      "price_min": 450,
+      "price_max": 500
+    },
+    "classic": {
+      "lines": [
+        4
+      ],
+      "invest": [
+        20
+      ],
+      "price_min": 200,
+      "price_max": 250
+    }
+  },
+  "packages": {
+    "vipcoin": {
+      "lines": [
+        16
+      ],
+      "invest": [
+        24
+      ],
+      "price_min": 19500,
+      "price_max": 20000,
+      "gift": "vip"
+    },
+    "premiumcoin": {
+      "lines": [
+        14
+      ],
+      "invest": [
+        21
+      ],
+      "price_min": 9500,
+      "price_max": 10000,
+      "gift": "premium"
+    },
+    "optimacoin": {
+      "lines": [
+        12
+      ],
+      "invest": [
+        18
+      ],
+      "price_min": 4500,
+      "price_max": 5000,
+      "gift": "optima"
+    },
+
+    "classiccoin": {
+      "lines": [
+        10
+      ],
+      "invest": [
+        15 
+      ],
+      "price_min": 2000,
+      "price_max": 2500,
+      "gift": "classic"
+    }
+  }
+}
