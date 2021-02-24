@@ -1,10 +1,10 @@
 @font-face {
   font-family: "iconsmind";
-  src: url("iconsmind.eot%3Fioqkm7");
-  src: url("iconsmind.eot%3Fioqkm7") format("embedded-opentype"),
-    url("iconsmind.ttf%3Fioqkm7") format("truetype"),
-    url("iconsmind.woff%3Fioqkm7") format("woff"),
-    url("iconsmind.svg%3Fioqkm7") format("svg");
+  src: url("iconsmind.eot");
+  src: url("iconsmind.eot") format("embedded-opentype"),
+    url("iconsmind.ttf") format("truetype"),
+    url("iconsmind.woff") format("woff"),
+    url("iconsmind.svg") format("svg");
   font-weight: normal;
   font-style: normal;
 }

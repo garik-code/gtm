@@ -28,6 +28,9 @@ mkdir -p pg_snapshots
 mkdir -p pg_stat
 mkdir -p pg_tblspc
 mkdir -p pg_twophase
+cd ..
+cd ..
+
 ```
 
 > Step 4. edit full path
